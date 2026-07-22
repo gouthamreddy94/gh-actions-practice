@@ -3,7 +3,7 @@ name: workflow-event
 on: 
     push:
       paths-ignore:
-        - '.github/workflows/01-building-blocks.yaml'
+        - '.github/workflows/**'
     workflow_dispatch: # here in workflow dispatch event requires manual triggering job inside github -> Actions
    
     
