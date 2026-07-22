@@ -1,8 +1,9 @@
 name: workflow-runners
 
 on:
-    push:
-
+    #push:
+    workflow_dispatch:
+        
 jobs:
     Linux-OS:
         runs-on: ubuntu-latest
