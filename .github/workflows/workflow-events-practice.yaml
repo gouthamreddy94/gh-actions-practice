@@ -1,0 +1,15 @@
+name: workflow-event
+
+on:
+    push: # for push, pull request we can specify at branch level
+    pull_request:
+    schedule:
+        - cron: '*/5 * * * *' # we can't schedule for every one minute 
+    workflow_dispatch: # here in workflow dispatch event requires manual triggering job inside github -> Actions
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: show trigger info
+              run: "echo This Job been triggered by ${{github.event_name}} event."
