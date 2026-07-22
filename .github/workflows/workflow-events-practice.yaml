@@ -2,9 +2,7 @@ name: workflow-event
 
 on: 
     workflow_dispatch: # here in workflow dispatch event requires manual triggering job inside github -> Actions
-    pull_request:
-    schedule:
-        - cron: '*/5 * * * *' # we can't schedule for every one minute 
+   
     
 jobs:
     echo:
