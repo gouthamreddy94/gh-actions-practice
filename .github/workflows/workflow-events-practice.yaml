@@ -1,6 +1,9 @@
 name: workflow-event
 
 on: 
+    push:
+      paths-ignore:
+        - '.github/workflows/workflow-events-practice.yaml'
     workflow_dispatch: # here in workflow dispatch event requires manual triggering job inside github -> Actions
    
     
