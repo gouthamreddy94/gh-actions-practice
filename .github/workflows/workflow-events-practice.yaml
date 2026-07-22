@@ -1,7 +1,6 @@
 name: workflow-event
 
 on:
-   # push: # for push, pull request we can specify at branch level
     pull_request:
     schedule:
         - cron: '*/5 * * * *' # we can't schedule for every one minute 
