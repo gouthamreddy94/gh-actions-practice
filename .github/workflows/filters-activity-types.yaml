@@ -1,0 +1,15 @@
+name: filters-activity-types-1
+
+on: 
+    pull_request:
+        types:
+            - opened
+            - synchronize
+        branches:
+            - main
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Running whenerver PR is opened or syncronize and base branch is main"
