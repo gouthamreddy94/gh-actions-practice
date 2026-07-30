@@ -1,8 +1,10 @@
-name: filters-activity-types-1
+name: filters-activity-types
 
 on: 
     pull_request:
         types:
+           # - opened
+           # - synchronize
             - closed
         branches:
             - main
