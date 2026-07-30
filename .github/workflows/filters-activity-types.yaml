@@ -1,10 +1,11 @@
-name: filters-activity-types-1
+name: filters-activity-types
 
 on: 
     pull_request:
         types:
-            - opened
-            - synchronize
+           # - opened
+           # - synchronize
+            - closed
         branches:
             - main
 
@@ -12,4 +13,4 @@ jobs:
     echo:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "Running whenerver PR is opened or syncronize and base branch is main"
+            - run: echo "Running whenerver PR is now closed"
