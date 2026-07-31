@@ -1,12 +1,24 @@
 name: github context
+run-name: context | DEBUG -- ${{inputs.debug}}
 
 on: 
     push:
     workflow_dispatch:
+        inputs:
+            debug:
+                type: boolean
+                default: false
+
+env:
+    MY_WORKFLOW_VAR: 'workflow'
+    MY_OVERWRITTEN_VAR: 'workflow'
 
 jobs:
     echo-data:
         runs-on: ubuntu-latest
+        env:
+            MY_JOB_VAR: 'job'
+            MY_OVERWRITTEN_VAR: 'job'
         steps:
             - name: dispaly information
               run: |
@@ -16,3 +28,13 @@ jobs:
             - name: Retrieve variable
               run: |
                 echo "variable data: ${{vars.MY_INFO}}"
+            - name: Print Env variable
+              run: |
+                echo "Workflow Env: ${{env.MY_WORKFLOW_VAR}}"
+                echo "Overwitten Env: ${{env.MY_OVERWRITTEN_VAR}}"
+            - name: Print Env variable
+              env:
+                MY_OVERWRITTEN_VAR: 'step'
+              run: |
+                echo "Workflow Env: ${{env.MY_WORKFLOW_VAR}}"
+                echo "Overwitten Env: ${{env.MY_OVERWRITTEN_VAR}}"
