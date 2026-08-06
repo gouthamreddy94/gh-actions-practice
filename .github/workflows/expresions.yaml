@@ -14,7 +14,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: '[Debug] Print start date'
-              if: ${{ inputs.debug || github.event_name == 'push' }}
+              #if: ${{ inputs.debug || github.event_name == 'push' }}
+              if: ${{ inputs.debug}}
               run: |
                 echo "Triggered By: ${{github.event_name}}"
                 echo "Branch: ${{github.ref}}"
