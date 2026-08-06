@@ -1,0 +1,27 @@
+name: Using Expressions
+run-name: Expressions | DEBUG - ${{inputs.debug && 'ON' || 'OFF'}}
+
+on:
+    push:
+    workflow_dispatch:
+        inputs:
+            debug:
+                type: boolean
+                default: false
+
+jobs:
+    echo1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: '[Debug] Print start date'
+              if: ${{ inputs.debug }}
+              run: |
+                echo "Triggered By: ${{github.event_name}}"
+                echo "Branch: ${{github.ref}}"
+                echo "Commit SHA: ${{github.sha}}"
+                echo "Runner OS: ${{runner.os}}"
+            - name: '[Debug] Print when triggered from main'
+              if: ${{inputs.debug && github.ref == 'ref/heads/main'}}
+              run: echo "I was triggered from main"
+            - name: Greatings
+              run: echo "Hello World"
