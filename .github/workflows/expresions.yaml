@@ -7,14 +7,14 @@ on:
         inputs:
             debug:
                 type: boolean
-                default: true
+                default: false
 
 jobs:
     echo1:
         runs-on: ubuntu-latest
         steps:
             - name: '[Debug] Print start date'
-              if: ${{ inputs.debug == 'true'}}
+              if: inputs.debug == true
               run: |
                 echo "Triggered By: ${{github.event_name}}"
                 echo "Branch: ${{github.ref}}"
