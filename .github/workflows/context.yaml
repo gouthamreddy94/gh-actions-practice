@@ -2,7 +2,7 @@ name: github context
 run-name: context | DEBUG -- ${{inputs.debug}}
 
 on: 
-    push:
+    #push:
     workflow_dispatch:
         inputs:
             debug:
